@@ -89,7 +89,7 @@ pip install -r requirements.txt
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/your-username/semantic-keyword-builder.git
+git clone https://github.com/VitoKon/semantic-keyword-builder.git
 cd semantic-keyword-builder
 ```
 
