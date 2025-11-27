@@ -11,7 +11,7 @@ st.title("🔑 Semantic Keyword Builder")
 
 st.markdown(
     """
-This app uses a large language model to generate a semantic keywordopia (EAV-based) for SEO/content strategy.
+This app uses a large language model to generate a semantic keyword universe (EAV-based) for SEO/content strategy.
 It returns a structured keyword list and lets you download everything as CSV.
 """
 )
@@ -56,7 +56,7 @@ seed_keywords_text = st.sidebar.text_area(
     help="Optional. Use to steer the model toward specific sub-topics."
 )
 
-run_button = st.sidebar.button("Generate Keywordopia")
+run_button = st.sidebar.button("Generate Keyword Universe 🚀")
 
 # ---------------------------------------------------------
 # API setup
@@ -86,7 +86,7 @@ def build_keyword_universe_prompt(
     seed_keywords: list[str],
 ) -> str:
     """
-    Build a strict JSON-only prompt for generating the semantic keywordopia.
+    Build a strict JSON-only prompt for generating the semantic keyword universe.
     """
 
     seeds_block = "\n".join(f"- {s}" for s in seed_keywords) if seed_keywords else "none"
@@ -95,7 +95,7 @@ def build_keyword_universe_prompt(
 You are an expert semantic SEO and keyword research assistant.
 
 Your task:
-Given the project context, generate a semantic keywordopia with entity-attribute-variable (EAV) annotations.
+Given the project context, generate a semantic keyword universe with entity-attribute-variable (EAV) annotations.
 Focus on queries and language actually used by searchers in the specified country and language.
 
 Project context:
@@ -109,7 +109,7 @@ Optional seed keywords:
 
 Methodology you must follow (internally; do NOT explain this in the output):
 1) Understand the niche and search context.
-2) Build a broad keywordopia:
+2) Build a broad keyword universe:
    - Include head terms, mid-tail, and long-tail queries.
    - Include a mix of informational, commercial, transactional, and navigational intents.
    - Include EAV-style combinations such as:
@@ -213,7 +213,7 @@ def generate_keyword_universe():
 # Main run
 # ---------------------------------------------------------
 if run_button:
-    with st.spinner("Generating semantic keywordopia..."):
+    with st.spinner("Generating semantic keyword universe..."):
         data, raw = generate_keyword_universe()
 
     if data is None:
@@ -247,7 +247,7 @@ if run_button:
     other_cols = [c for c in df.columns if c not in existing_cols]
     df = df[existing_cols + other_cols]
 
-    st.subheader("📊 Generated Keywordopia")
+    st.subheader("📊 Generated Keyword Universe")
     st.dataframe(
         df,
         use_container_width=True,
@@ -269,5 +269,6 @@ if run_button:
     with st.expander("Raw JSON output"):
         st.code(raw, language="json")
 else:
-    st.info("Configure your project in the sidebar and click 'Generate Keywordopia 🚀'.")
+    st.info("Configure your project in the sidebar and click 'Generate Keyword Universe 🚀'.")
+
 
