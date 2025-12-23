@@ -4,7 +4,7 @@ Semantic Keyword Builder is a Streamlit app that generates a semantic keyword bu
 
 The app takes basic project context (country, language, website, niche, and optional seed keywords) and returns a structured keyword list with intent, entity, attribute, variable, topic, and cluster annotations. You can explore the results in a table and download them as CSV.
 
----
+----
 
 ## Features
 
